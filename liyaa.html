@@ -385,17 +385,7 @@
                     <!-- Neko Chan -->
                     <div onclick="selectChar('neko')" class="cursor-pointer bg-white p-4 rounded-xl border-4 border-black hover:bg-pink-100 transition-transform hover:-translate-y-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group flex flex-col items-center justify-center">
                         <div class="w-32 h-32 mb-2 transform group-hover:scale-110 transition-transform">
-                             <!-- Simple SVG Preview for Neko -->
-                             <svg viewBox="0 0 100 100" class="svg-icon">
-                                <circle cx="50" cy="50" r="35" fill="#fce7f3" stroke="black" stroke-width="2"/>
-                                <!-- Cat Ears -->
-                                <path d="M20,30 L30,10 L50,30 Z" fill="#ec4899" stroke="black" stroke-width="2"/>
-                                <path d="M80,30 L70,10 L50,30 Z" fill="#ec4899" stroke="black" stroke-width="2"/>
-                                <!-- Face -->
-                                <circle cx="35" cy="55" r="4" fill="#be185d"/>
-                                <circle cx="65" cy="55" r="4" fill="#be185d"/>
-                                <path d="M45,65 Q50,70 55,65" fill="none" stroke="black" stroke-width="2"/>
-                             </svg>
+                             <img src="lucy-avatar.png" alt="Lucy" class="w-full h-full object-cover rounded-lg"/>
                         </div>
                         <div class="font-black text-xl text-pink-600">Lucy</div>
                         
@@ -403,18 +393,7 @@
                     <!-- Star Kun -->
                     <div onclick="selectChar('star')" class="cursor-pointer bg-white p-4 rounded-xl border-4 border-black hover:bg-blue-100 transition-transform hover:-translate-y-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group flex flex-col items-center justify-center">
                           <div class="w-32 h-32 mb-2 transform group-hover:scale-110 transition-transform">
-                            <!-- Simple SVG Preview for Star -->
-                            <svg viewBox="0 0 100 100" class="svg-icon">
-                                <circle cx="50" cy="50" r="35" fill="#e0f2fe" stroke="black" stroke-width="2"/>
-                                <!-- Star Hair Clip -->
-                                <path d="M20,25 L30,40 L10,40 Z" fill="#facc15" stroke="black" stroke-width="2" transform="rotate(-30 20 25)"/>
-                                <!-- Spiky Hair -->
-                                <path d="M20,40 L30,10 L50,35 L70,10 L80,40" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"/>
-                                <!-- Face -->
-                                <circle cx="35" cy="55" r="4" fill="#0284c7"/>
-                                <circle cx="65" cy="55" r="4" fill="#0284c7"/>
-                                <path d="M45,65 Q50,70 55,65" fill="none" stroke="black" stroke-width="2"/>
-                            </svg>
+                            <img src="luke-avatar.png" alt="Luke" class="w-full h-full object-cover rounded-lg"/>
                         </div>
                         <div class="font-black text-xl text-blue-600">Luke</div>
                         
@@ -1905,10 +1884,8 @@
 
         window.selectChar = (type) => {
             state.playerType = type;
-            const nekoSVG = `<svg viewBox="0 0 100 100" class="w-full h-full"><circle cx="50" cy="50" r="35" fill="#fce7f3" stroke="black"/><path d="M20,30 L30,10 L50,30 Z" fill="#ec4899" stroke="black"/><path d="M80,30 L70,10 L50,30 Z" fill="#ec4899" stroke="black"/><circle cx="35" cy="55" r="4" fill="#be185d"/><circle cx="65" cy="55" r="4" fill="#be185d"/><path d="M45,65 Q50,70 55,65" fill="none" stroke="black" stroke-width="2"/></svg>`;
-            const starSVG = `<svg viewBox="0 0 100 100" class="w-full h-full"><circle cx="50" cy="50" r="35" fill="#e0f2fe" stroke="black"/><path d="M20,25 L30,40 L10,40 Z" fill="#facc15" stroke="black" transform="rotate(-30 20 25)"/><path d="M20,40 L30,10 L50,35 L70,10 L80,40" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"/><circle cx="35" cy="55" r="4" fill="#0284c7"/><circle cx="65" cy="55" r="4" fill="#0284c7"/><path d="M45,65 Q50,70 55,65" fill="none" stroke="black" stroke-width="2"/></svg>`;
             
-            document.getElementById('avatar-icon').innerHTML = (type === 'neko') ? nekoSVG : starSVG;
+            document.getElementById('avatar-icon').innerHTML = (type === 'neko') ? `<img src="lucy-avatar.png" alt="Lucy" style="width:100%; height:100%; object-fit:cover; border-radius:4px;"/>` : `<img src="luke-avatar.png" alt="Luke" style="width:100%; height:100%; object-fit:cover; border-radius:4px;"/>`;
             savePlayerData();
             showScreen('screen-map');
             updateMapUI();
