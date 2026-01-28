@@ -2661,13 +2661,14 @@
         async function executeFinishSequence() {
              // BGM sudah dihentikan di updatePhysics
              state.score += 50;
-             updateLeaderboard(state.score);
              document.getElementById('finish-player-name').innerText = state.playerName;
              document.getElementById('finish-player-score').innerText = state.score;
              
              // --- NEW: KIRIM DATA KE FIREBASE ---
              // WAIT untuk penyimpanan selesai sebelum melanjutkan
              await saveGameResultToFirebase();
+             
+             // NOTE: updateLeaderboard() REMOVED - saveGameResultToFirebase() already saves complete data
              
              // UPDATE STATS DISPLAY
              document.getElementById('finish-correct-count').innerText = state.correctAnswers;
@@ -2828,10 +2829,8 @@
                 }
             } catch(e) {}
         }
-        async function updateLeaderboard(score) {
-            if (!userId || userId==='offline' || !db) return;
-            try { await addDoc(collection(db, "game_results"), { playerName: state.playerName, name: state.playerName, score: score, userId: userId }); } catch(e){}
-        }
+        // DEPRECATED: updateLeaderboard() removed - use saveGameResultToFirebase() instead to avoid duplicates
+        // Each game now creates ONLY ONE Firestore document with all data
         function loadLeaderboard() {
             if (!db) return;
             if (unsubLeaderboard) unsubLeaderboard();
