@@ -8,7 +8,7 @@
 
 ✅ GAME APPLICATION
    └─ liyaa.html (130 KB)
-      • 9 level dengan soal fisika berbeda
+      • 5 level dengan soal fisika berbeda
       • Scoring system dengan bonus
       • 2 karakter pilihan (Neko/Star)
       • Audio & visual effects
