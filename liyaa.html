@@ -699,75 +699,72 @@
             gates: [],
             // --- URUTAN LEVEL BARU (MUDAH -> SUSAH) ---
             checkpoints: [
-                // LEVEL 1: TRUE/FALSE - MOMENTUM DIPENGARUHI MASSA DAN KECEPATAN
-                { 
-                    id: 1, x: 1000, type: 'truefalse', visual: 'river', 
+                // LEVEL 1: TRUE/FALSE - KONSEP MOMENTUM (MUDAH)
+                {
+                    id: 1, x: 1000, type: 'truefalse', visual: 'river',
                     question: "Momentum suatu benda dipengaruhi oleh massa dan kecepatan.",
                     sim: {},
-                    options: { 
-                        correctValue: true,
-                        feedback: { correct: "Benar! Momentum adalah hasil kali massa dan kecepatan (p = m·v).", wrong: "Salah — momentum dipengaruhi oleh kedua faktor tersebut. Ingat: p = m·v" }
-                    } 
-                },
-
-                // LEVEL 2: PILIHAN GANDA - RUMUS MOMENTUM LINEAR
-                { 
-                    id: 2, x: 2000, type: 'multiple-choice', visual: 'cliff', 
-                    question: "Rumus momentum linear adalah …",
-                    sim: {},
-                    options: { 
-                        choices: [
-                            { text: "p = m + v", value: "A" },
-                            { text: "p = m · v", value: "B" },
-                            { text: "p = m / v", value: "C" },
-                            { text: "p = v / m", value: "D" }
-                        ],
-                        correctValue: "B",
-                        feedback: { correct: "Benar! Momentum (p) adalah hasil kali massa (m) dan kecepatan (v), yaitu p = m·v.", wrong: "Salah — rumus momentum adalah p = m·v (B)." }
-                    } 
-                },
-
-                // LEVEL 3: ISIAN SINGKAT / NUMERIC - PERHITUNGAN MOMENTUM DASAR
-                { 
-                    id: 3, x: 3000, type: 'numeric-input', visual: 'spike', 
-                    question: "Sebuah benda bermassa 2 kg bergerak dengan kecepatan 4 m/s. Besar momentumnya adalah …",
-                    sim: {}, 
-                    options: { 
-                        input: { correctValue: 8, tolerance: 0.1, unit: 'kg·m/s' },
-                        feedback: { correct: "Benar! Momentum = m × v = 2 × 4 = 8 kg·m/s.", wrong: "Coba lagi — gunakan rumus p = m·v." }, 
-                        explanation: "p = m·v = 2 kg × 4 m/s = 8 kg·m/s"
-                    } 
-                },
-
-                // LEVEL 4: POLL / PREDIKSI CEPAT - MOMENTUM TRUK VS MOTOR
-                {
-                    id: 4, x: 4800, type: 'poll-predict', visual: 'fire',
-                    question: "Mana yang momentumnya lebih besar?",
-                    sim: {},
                     options: {
-                        choices: [
-                            { text: "Truk bergerak pelan", value: "A" },
-                            { text: "Motor bergerak sangat cepat", value: "B" }
-                        ],
-                        correctValue: "A",
-                        feedback: { correct: "Benar! Truk memiliki massa jauh lebih besar daripada motor, sehingga meskipun bergerak pelan, momentumnya tetap lebih besar.", wrong: "Coba pikirkan lagi — massa truk jauh lebih besar daripada motor. Momentum bergantung pada kedua faktor (m dan v), namun massa truk sangat dominan." }
+                        correctValue: true,
+                        feedback: { correct: "Benar! Momentum adalah hasil kali massa dan kecepatan (p = m·v).", wrong: "Salah — momentum dipengaruhi oleh massa dan kecepatan. Ingat: p = m·v." }
                     }
                 },
 
-                // LEVEL 5: PILIHAN GANDA - HUBUNGAN IMPULS DAN MOMENTUM
+                // LEVEL 2: MULTIPLE-CHOICE - IMPULS (GAMPANG)
                 {
-                    id: 5, x: 6200, type: 'multiple-choice', visual: 'croc',
-                    question: "Hubungan antara impuls dan momentum adalah …",
+                    id: 2, x: 2000, type: 'multiple-choice', visual: 'cliff',
+                    question: "Impuls (I) didefinisikan sebagai …",
                     sim: {},
                     options: {
                         choices: [
-                            { text: "Impuls sama dengan momentum", value: "A" },
-                            { text: "Impuls sama dengan gaya", value: "B" },
-                            { text: "Impuls sama dengan perubahan momentum", value: "C" },
-                            { text: "Impuls sama dengan energi", value: "D" }
+                            { text: "Perubahan momentum", value: "A" },
+                            { text: "Gaya yang bekerja pada benda", value: "B" },
+                            { text: "Energi kinetik", value: "C" },
+                            { text: "Kecepatan akhir", value: "D" }
                         ],
-                        correctValue: "C",
-                        feedback: { correct: "Benar! Impuls (I) sama dengan perubahan momentum (Δp). Secara matematis: I = F·t = Δp = m·Δv.", wrong: "Salah — impuls-momentum theorem menyatakan bahwa impuls sama dengan perubahan momentum (I = Δp = C)." }
+                        correctValue: "A",
+                        feedback: { correct: "Benar! Impuls sama dengan perubahan momentum (I = F·Δt = Δp).", wrong: "Salah — impuls adalah perubahan momentum: I = F·Δt = Δp." }
+                    }
+                },
+
+                // LEVEL 3: NUMERIC INPUT - PERHITUNGAN MOMENTUM (SEDANG)
+                {
+                    id: 3, x: 3000, type: 'numeric-input', visual: 'spike',
+                    question: "Sebuah benda bermassa 2 kg bergerak dengan kecepatan 4 m/s. Besar momentumnya adalah …",
+                    sim: {},
+                    options: {
+                        input: { correctValue: 8, tolerance: 0.1, unit: 'kg·m/s' },
+                        feedback: { correct: "Benar! p = m·v = 2 × 4 = 8 kg·m/s.", wrong: "Coba lagi — gunakan rumus p = m·v." },
+                        explanation: "p = m·v = 2 kg × 4 m/s = 8 kg·m/s"
+                    }
+                },
+
+                // LEVEL 4: CALC - HUKUM KEKEKALAN MOMENTUM LINIER (SULIT)
+                {
+                    id: 4, x: 4800, type: 'calc', visual: 'cannon',
+                    question: "Dua benda bertumbukan dan menempel. m1 = 2 kg, v1 = 3 m/s; m2 = 3 kg, v2 = -1 m/s. Jika setelah tumbukan keduanya menempel, kecepatan gabungan adalah …",
+                    sim: {},
+                    options: {
+                        input: { correctValue: 0.6, tolerance: 0.05, unit: 'm/s' },
+                        feedback: { correct: "Benar! Momentum awal = 2×3 + 3×(-1) = 3 kg·m/s; v = 3 / (2+3) = 0.6 m/s.", wrong: "Salah — gunakan hukum kekekalan momentum: m1v1 + m2v2 = (m1+m2)·v." }
+                    }
+                },
+
+                // LEVEL 5: MULTIPLE-CHOICE - KOEFISIEN RESTITUSI & JENIS TUMBUKAN (PALING SULIT)
+                {
+                    id: 5, x: 6200, type: 'multiple-choice', visual: 'croc',
+                    question: "Koefisien restitusi (e) bernilai 1 menandakan tumbukan …",
+                    sim: {},
+                    options: {
+                        choices: [
+                            { text: "Elastis sempurna", value: "A" },
+                            { text: "Inelastis", value: "B" },
+                            { text: "Sangat inelastis (menempel)", value: "C" },
+                            { text: "Bersifat disipatif", value: "D" }
+                        ],
+                        correctValue: "A",
+                        feedback: { correct: "Benar! e = 1 berarti tumbukan elastis sempurna; energi kinetik relatif tetap terjaga.", wrong: "Salah — e = 1 berarti tumbukan elastis sempurna." },
+                        explanation: "Jenis tumbukan dan koefisien restitusi digunakan dalam analisis kecelakaan dan olahraga—contoh aplikasi: perhitungan pantulan bola atau rekonstruksi tabrakan." 
                     }
                 },
 
