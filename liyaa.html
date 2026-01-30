@@ -739,16 +739,22 @@
                     }
                 },
 
-                // LEVEL 4: CALC - HUKUM KEKEKALAN MOMENTUM LINIER (MUDAH)
+                // LEVEL 4: MULTI-SELECT - PILIH 2 PERNYATAAN BENAR (MUDAH)
                 {
-                    id: 4, x: 4800, type: 'calc', visual: 'cannon',
-                    question: "Dua benda bertumbukan dan menempel. m1 = 1 kg, v1 = 2 m/s; m2 = 1 kg, v2 = 0 m/s. Jika setelah tumbukan keduanya menempel, kecepatan gabungan adalah …",
+                    id: 4, x: 4800, type: 'multi-select', visual: 'cannon',
+                    question: "Pilih dua pernyataan yang benar tentang tumbukan tak lenting (inelastis):",
                     sim: {},
                     options: {
-                        input: { correctValue: 1, tolerance: 0.05, unit: 'm/s' },
-                        feedback: { correct: "Benar! Momentum awal = 1×2 + 1×0 = 2 kg·m/s; v = 2 / (1+1) = 1 m/s.", wrong: "Salah — gunakan hukum kekekalan momentum: m1v1 + m2v2 = (m1+m2)·v." }
+                        choices: [
+                            { text: "Total momentum sistem sebelum dan setelah tumbukan tetap.", value: "A" },
+                            { text: "Kedua benda selalu memantul dan mempertahankan energi kinetik.", value: "B" },
+                            { text: "Dua benda dapat menempel setelah tumbukan.", value: "C" }
+                        ],
+                        correctValues: ["A","C"],
+                        feedback: { correct: "Benar! Dalam tumbukan inelastis momentum total tetap, dan benda dapat menempel sehingga energi kinetik tidak selalu terjaga.", wrong: "Salah — periksa kembali konsep tumbukan: momentum konservatif tetapi energi kinetik tidak selalu terjaga pada tumbukan tak lenting." }
                     }
                 },
+
 
                 // LEVEL 5: MULTIPLE-CHOICE - KOEFISIEN RESTITUSI & JENIS TUMBUKAN (PALING SULIT)
                 {
